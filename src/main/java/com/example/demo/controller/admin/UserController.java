@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.admin;
 
 import java.util.List;
 
@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String getMethodName() {
-        return "hello";
+        return "admin/show";
     }
-
 }
