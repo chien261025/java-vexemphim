@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
     @GetMapping("/admin")
     public String getMethodName() {
-        return "admin/show";
+        return "admin/dashboard/show";
     }
 }
