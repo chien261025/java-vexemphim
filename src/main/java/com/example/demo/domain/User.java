@@ -8,16 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String ten;
-    private String hoten;
+    private String name;
+    private String password;
     private String email;
-    private String sodienthoai;
-    private String vaitro;
+    private String phone;
+    private String role;
 
     public long getId() {
         return id;
@@ -27,20 +27,20 @@ public class User {
         this.id = id;
     }
 
-    public String getTen() {
-        return ten;
+    public String getNam() {
+        return name;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getHoten() {
-        return hoten;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHoten(String hoten) {
-        this.hoten = hoten;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -51,20 +51,20 @@ public class User {
         this.email = email;
     }
 
-    public String getSodienthoai() {
-        return sodienthoai;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setSodienthoai(String sodienthoai) {
-        this.sodienthoai = sodienthoai;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getVaitro() {
-        return vaitro;
+    public String getRole() {
+        return role;
     }
 
-    public void setVaitro(String vaitro) {
-        this.vaitro = vaitro;
+    public void setRole(String role) {
+        this.role = role;
     }
 
 }
