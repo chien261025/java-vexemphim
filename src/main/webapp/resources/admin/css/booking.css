@@ -634,7 +634,7 @@ progress {
 .container-sm {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
-  width: 100%;
+  width: 190%;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
@@ -11266,7 +11266,7 @@ table {
 /* Table Header */
 th {
   background-color: #4CAF50;
-  color: white;
+  color: black; 
   font-size: 16px;
   text-align: center;
   padding: 12px;
@@ -11352,4 +11352,140 @@ button:hover {
       position: relative;
       height: auto;
   }
+}
+/* Đảm bảo sidebar nằm trên các phần tử khác */
+.sb-nav-fixed {
+  position: fixed;
+  z-index: 1030; /* Đảm bảo thanh menu nằm trên các phần tử khác */
+  top: 0;
+  left: 0;
+  width: 250px; /* Giữ độ rộng của sidebar */
+  height: 100vh; /* Chiếm toàn bộ chiều cao */
+}
+
+/* Cải thiện phần nội dung chính */
+main {
+  margin-left: 250px; /* Đảm bảo nội dung không bị che khuất bởi sidebar */
+  padding: 20px;
+}
+/* Đảm bảo bảng có chiều dài đủ lớn */
+.table {
+  width: 100%; /* Giữ bảng chiếm toàn bộ chiều rộng */
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Thêm bóng mờ cho bảng */
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 800px; /* Tăng chiều dài của bảng */
+  display: block; /* Đảm bảo bảng có thể cuộn khi cần */
+  overflow-y: auto; /* Cho phép cuộn dọc nếu bảng dài */
+  height: auto; /* Chiều cao tự động */
+}
+
+/* Cải thiện tiêu đề bảng */
+.table th {
+  background-color: #4CAF50;
+  color: black; 
+  padding: 14px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 2px solid #ddd;
+  cursor: pointer;
+}
+
+/* Cải thiện các ô trong bảng */
+.table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* Hiệu ứng hover cho các dòng */
+.table tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* Cải thiện các nút trong bảng */
+.table .btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+/* Nút Edit */
+.table .btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.table .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Nút Delete */
+.table .btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.table .btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Cải thiện thanh tìm kiếm */
+.search-bar {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+  margin: 20px 0;
+  background-color: #f7f7f7;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Cải thiện phần điều chỉnh số lượng bản ghi hiển thị */
+.entries-per-page {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  background-color: #f7f7f7;
+}
+
+/* Cải thiện phần phân trang */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination a {
+  color: #007bff;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #f1f1f1;
+}
+
+.pagination .active {
+  background-color: #007bff;
+  color: white;
 }
