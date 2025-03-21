@@ -9,4 +9,9 @@ public class ProductController {
     public String getMethodName() {
         return "/admin/dashboard/tables";
     }
+
+    @GetMapping("/admin/product")
+    public String getProductPage() {
+        return "/admin/product/showProduct";
+    }
 }
