@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DashboardComtroller {
     @GetMapping("/admin/dashboard")
     public String getDashboardPag() {
-        return "/admin/dashboard/showDashboard";
+        return "/admin/dashboard/index";
     }
 
     // @GetMapping("/")
     // public String getDashboardPage() {
-    // return "/admin/dashboard/showDashboard";
+    // return "/admin/dashboard/index";
     // }
 }

@@ -21,7 +21,7 @@
                 <c:import url="../layout/header.jsp" />
 
                 <div id="layoutSidenav">
-                    <c:import url="../layout/navbar.jsp" />
+                    <c:import url="../layout/sidebar.jsp" />
 
                     <div id="layoutSidenav_content">
                         <main>

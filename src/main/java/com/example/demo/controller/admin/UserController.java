@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
-        @GetMapping("/admin")
+        @GetMapping("/admin/user")
         public String getMethodName() {
-                return "/admin/dashboard/index";
+                return "/admin/user/tables";
         }
 }
