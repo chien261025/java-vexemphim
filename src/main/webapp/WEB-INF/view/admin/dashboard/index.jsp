@@ -19,7 +19,7 @@
             <body class="sb-nav-fixed">
                 <c:import url="../layout/header.jsp" />
 
-                <div id="layoutSidenav">
+                <div id="layoutSidenav">a
                     <c:import url="../layout/sidebar.jsp" />
 
                     <div id="layoutSidenav_content">

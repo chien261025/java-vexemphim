@@ -18,7 +18,6 @@ public class Product {
     private String shortDescription;
     private String quantity;
     private String factory;
-    private String target;
 
     public long getId() {
         return id;
@@ -74,13 +73,5 @@ public class Product {
 
     public void setFactory(String factory) {
         this.factory = factory;
-    }
-
-    public String getTarget() {
-        return target;
-    }
-
-    public void setTarget(String target) {
-        this.target = target;
     }
 }
