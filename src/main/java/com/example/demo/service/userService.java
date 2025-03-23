@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.User;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.userRepository;
 
 @Service
-public class UserService {
-    private final UserRepository userRepository;
+public class userService {
+    private final userRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public userService(userRepository userRepository) {
         this.userRepository = userRepository;
     }
 
