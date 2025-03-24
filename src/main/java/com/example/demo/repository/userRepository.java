@@ -8,4 +8,7 @@ import com.example.demo.domain.User;
 @Repository
 public interface userRepository extends JpaRepository<User, Long> {
     User save(User newUser);
+
+    User findById(long id);
+
 }

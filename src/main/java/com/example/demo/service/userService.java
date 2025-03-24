@@ -22,4 +22,12 @@ public class userService {
     public List<User> getUserFindAll() {
         return this.userRepository.findAll();
     }
+
+    public User getFindById(long id) {
+        return this.userRepository.findById(id);
+    }
+
+    public void handleDeleteUser(long id) {
+        this.userRepository.deleteById(id);
+    }
 }

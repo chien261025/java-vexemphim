@@ -34,6 +34,8 @@
                                     <div class="card-header">
                                         <i class="fas fa-table me-1"></i>
                                         DataTable Example
+                                        <a href="/admin/user/create" style="float: right;"
+                                            class="btn btn-primary edit-btn">CREAT-ACCOUNT</a>
                                     </div>
                                     <div class="card-body">
                                         <table id="datatablesSimple">
@@ -56,8 +58,10 @@
                                                         <td>${users.phone}</td>
                                                         <td>${users.role}</td>
                                                         <td>
-                                                            <button class="btn btn-primary edit-btn">Edit</button>
-                                                            <button class="btn btn-danger delete-btn">Delete</button>
+                                                            <a href="/admin/user/editUser/${users.id}"
+                                                                class="btn btn-warning btn-sm">Edit</a>
+                                                            <a href="/admin/user/deleteUser/${users.id}"
+                                                                class="btn btn-danger btn-sm">Delete</a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>

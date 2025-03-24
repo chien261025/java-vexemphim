@@ -2,7 +2,6 @@ package com.example.demo.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DashboardComtroller {
@@ -11,6 +10,10 @@ public class DashboardComtroller {
         return "/admin/dashboard/index";
     }
 
+    @GetMapping("/admin")
+    public String getDashboardPage() {
+        return "/admin/dashboard/index";
+    }
     // @GetMapping("/")
     // public String getDashboardPage() {
     // return "/admin/dashboard/index";

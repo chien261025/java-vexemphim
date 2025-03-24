@@ -18,6 +18,15 @@ public class Product {
     private String shortDescription;
     private String quantity;
     private String factory;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public long getId() {
         return id;
