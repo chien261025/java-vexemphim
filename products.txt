@@ -1,0 +1,98 @@
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone X', 10490000, 100, 'Thiết kế tai thỏ đầu tiên, màn hình OLED sắc nét. Face ID bảo mật thay thế Touch ID. Camera kép chụp xóa phông đẹp, hiệu năng ổn định đến hiện tại.',
+'A11 Bionic, 3 GB, 64 GB / 256 GB', 'APPLE', '1742975958802-iphone-x.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 11', 11590000, 100, 'Cấu hình mạnh với chip A13 Bionic. Camera góc rộng ấn tượng, pin cải thiện rõ rệt. Màu sắc trẻ trung, phù hợp người dùng năng động.',
+'A13 Bionic, 4 GB, 64 GB / 128 GB / 256 GB', 'APPLE', '1742976185235-iphone-11.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 12', 12990000, 100, 'Thiết kế viền vuông hiện đại, hỗ trợ 5G. Màn hình OLED rực rỡ, camera kép chất lượng cao. Hiệu năng mạnh mẽ, sử dụng lâu dài mượt mà.',
+'A14 Bionic, 4 GB, 64 GB / 128 GB / 256 GB', 'APPLE', '1742976192369-iphone-12.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 13', 13190000, 100, 'Camera chéo đặc trưng, nâng cấp chống rung cảm biến. Hiệu suất ổn định với A15 Bionic. Thời lượng pin tốt hơn iPhone 12, màu sắc thời trang.',
+'A15 Bionic, 4 GB, 128 GB / 256 GB / 512 GB', 'APPLE', '1742976199977-iphone-13.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 14', 14290000, 100, 'Giữ nguyên thiết kế iPhone 13 nhưng nâng pin, camera. Tính năng phát hiện tai nạn, kết nối vệ tinh (ở một số khu vực). A15 Bionic nhưng có 5-core GPU (hiệu năng đồ họa cao hơn).',
+'A15 Bionic (5-core GPU), 6 GB, 128 GB / 256 GB / 512 GB / 1 TB', 'APPLE', '1742976206989-iphone-14.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 15', 15490000, 100, 'Nâng cấp cổng sạc USB-C hiện đại. Dynamic Island trên tất cả các phiên bản. Chip A16 Bionic, camera 48MP cho ảnh sắc nét, rõ chi tiết.',
+'A16 Bionic, 6 GB, 128 GB / 256 GB / 512 GB / 1 TB', 'APPLE', '1742976707224-iphone-15.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 15 Pro', 16090000, 100, 'Khung titan nhẹ, siêu bền, thiết kế cao cấp. Chip A17 Pro đầu tiên trên tiến trình 3nm. Camera chuyên nghiệp, quay video ProRes, hỗ trợ chơi game console.',
+'A17 Pro, 8 GB, 128 GB / 256 GB / 512 GB / 1 TB', 'APPLE', '1742976213616-iphone-15pro.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('iPhone 16', 18090000, 100, 'Chip A17 Pro, camera cải tiến với AI thông minh. Dynamic Island mượt hơn, pin lâu hơn. Dự kiến có thêm tính năng quay video không gian hoặc AI hỗ trợ.',
+'A17 Pro, 8 GB, 256 GB / 512 GB / 1 TB', 'APPLE', '1742976220060-iphone-16.jpg');
+
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy A06', 7150000, 100, 'Dòng phổ thông, giá rẻ. Thiết kế trẻ trung, phù hợp cho học sinh – sinh viên. Cấu hình cơ bản, pin trâu, phù hợp cho nhu cầu cơ bản như học online, xem phim, lướt web.',
+'Helio G85, 4 GB, 64 GB / 128 GB', 'SAMSUNG', '1742976723345-ss-a06.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy A36', 4990000, 100, 'Dòng trung cấp với pin lớn (~6000mAh). Mạnh về hiệu năng, hỗ trợ mạng 5G, màn hình Super AMOLED. Phù hợp cho người dùng yêu thích pin trâu và giải trí lâu dài.',
+'Snapdragon 695, 6 GB, 128 GB', 'SAMSUNG', '1742976254247-ss-a36.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy M54 5G', 5190000, 100, 'Flagship cao cấp nhất của Samsung. Camera zoom siêu xa, chụp ảnh chuyên nghiệp, hỗ trợ bút S Pen (giống dòng Note). Màn hình 120Hz, Snapdragon/Exynos đời mới nhất. Dành cho người dùng cao cấp, doanh nhân hoặc yêu công nghệ.',
+'Exynos 1380, 8 GB, 128 GB / 256 GB', 'SAMSUNG', '1742976276184-ss-m54.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy S24 Ultra', 25990000, 100, 'Flagship đầu bảng năm 2024. Camera 200MP, zoom xa đỉnh cao, kèm bút S Pen. Thiết kế sang trọng, hiệu năng cực mạnh, dành cho người dùng cao cấp',
+'Snapdragon 8 Gen 3, 12 GB, 256 GB / 512 GB / 1 TB', 'SAMSUNG', '1742976294185-ss-s24ultra.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy S25 Ultra', 27990000, 100, 'Kế thừa và nâng cấp toàn diện từ S24 Ultra. Công nghệ AI, camera, hiệu suất hàng đầu thị trường.',
+'Snapdragon 8 Gen 4, 12 GB, 256 GB / 512 GB / 1 TB', 'SAMSUNG', '1742976319960-samsung_S25_ultra.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy Z Flip6', 890000, 100, 'Dòng điện thoại gập thời trang. Thiết kế nhỏ gọn, tiện lợi khi bỏ túi. Phù hợp với người yêu thích sự mới lạ, cá tính.',
+'Snapdragon 8 Gen 2, 8 GB, 256 GB / 512 GB', 'SAMSUNG', '1742976671393-ss-zflip6.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy S22+', 19990000, 100, 'Flagship 2022, vẫn rất mạnh mẽ. Màn hình lớn, thiết kế mỏng nhẹ, camera tốt. Giá hợp lý cho người muốn flagship nhưng tiết kiệm.',
+'Snapdragon 8 Gen 1, 8 GB, 128 GB / 256 GB', 'SAMSUNG', '1742976475976-ss-s22plus.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('Samsung Galaxy S21 FE 5G', 15390000, 100, 'Phiên bản \"Fan Edition\" giá tốt của dòng S. Cân bằng giữa hiệu năng và giá thành. Phù hợp với người dùng trẻ, yêu thích trải nghiệm flagship.',
+'Snapdragon 888, 6 GB / 8 GB, 128 GB / 256 GB', 'SAMSUNG', '1742976492198-ss-s21fe.jpg');
+
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO A78', 4990000, 100, 'Dòng phổ thông đẹp mắt. Hiệu năng đủ dùng, pin lớn. Giao diện ColorOS dễ sử dụng, phù hợp học sinh/sinh viên.',
+'Snapdragon 680, 8 GB, 256 GB', 'OPPO', '1742976512101-oppo-a78.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO Reno10', 10090000, 100, 'Camera chân dung nổi bật, thiết kế thanh lịch. Hiệu năng ổn định, pin đủ dùng cả ngày. Hướng đến người dùng trẻ, thích chụp ảnh.',
+'Snapdragon 778G, 8 GB, 256 GB', 'OPPO', '1742976527034-oppo-reno10.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO Reno13 5G', 13490000, 100, 'Mẫu Reno mới, hỗ trợ 5G, thiết kế mỏng nhẹ. Nâng cấp camera và hiệu năng so với Reno10. Phù hợp cho người thích công nghệ hiện đại.',
+'Dimensity 7050, 12 GB, 256 GB / 512 GB', 'OPPO', '1742976541015-oppo-reno13.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO Find X8', 9790000, 100, 'Flagship cao cấp nhất của OPPO. Camera hợp tác với Hasselblad, màn hình cong sang trọng. Sạc siêu nhanh, cấu hình mạnh, dành cho người yêu công nghệ cao cấp.',
+'Snapdragon 8 Gen 2, 12 GB, 256 GB / 512 GB', 'OPPO', '1742976561892-oppo-x8.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO A38', 3290000, 100, 'Dòng phổ thông, giá rẻ, pin khỏe. Giao diện đơn giản, hiệu năng phù hợp người dùng cơ bản.',
+'Helio G85, 4 GB, 128 GB', 'OPPO', '1742976576277-oppo-a38.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO A5 Pro', 5190000, 100, 'Thiết kế bóng bẩy, camera kép. Cấu hình ổn, pin lớn. Hợp với người cần máy ổn định, giá hợp lý.',
+'Dimensity 6020, 6 GB, 128 GB', 'OPPO', '1742976591868-oppo-a5pro.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO Reno12 5G', 6790000, 100, 'Mẫu cận cao cấp mới nhất của Reno. Camera AI làm đẹp, hỗ trợ mạng 5G. Thiết kế mỏng, trẻ trung, phù hợp với người yêu thích selfie và hiệu năng tốt.',
+'Dimensity 7050, 12 GB, 256 GB', 'OPPO', '1742976603060-oppo-reno12.jpg');
+
+INSERT INTO products (name, price, quantity, detailed_description, short_description, factory, image)
+VALUES ('OPPO A79 5G', 10790000, 100, 'Phổ thông nhưng có hỗ trợ 5G. Màn hình lớn, pin lâu. Hướng tới người muốn trải nghiệm 5G với giá phải chăng.',
+'Dimensity 6020, 8 GB, 128 GB', 'OPPO', '1742976613953-oppo-a79.jpg');
+
