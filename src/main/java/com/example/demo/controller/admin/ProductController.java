@@ -81,9 +81,11 @@ public class ProductController {
     }
 
     @PostMapping("/admin/product/editProduct")
-    public String postEditProduct(Model model, @ModelAttribute("editProduct") Product editProduct) {
+    public String postEditProduct(Model model, @ModelAttribute("editProduct") Product editProduct,
+            @RequestParam("productFile") MultipartFile file) {
 
         Product updateProduct = this.productService.getFindId(editProduct.getId());
+        String productFile = this.uploadFileService.handleSaveUploadFile(file, "product");
         if (updateProduct != null) {
             updateProduct.setName(editProduct.getName());
             updateProduct.setPrice(editProduct.getPrice());
@@ -91,6 +93,7 @@ public class ProductController {
             updateProduct.setShortDescription(editProduct.getShortDescription());
             updateProduct.setQuantity(editProduct.getQuantity());
             updateProduct.setFactory(editProduct.getFactory());
+            updateProduct.setImage(productFile);
             this.productService.handleSaveProduct(updateProduct);
         }
 

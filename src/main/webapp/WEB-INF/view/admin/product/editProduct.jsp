@@ -40,7 +40,7 @@
                                         <h3>Edit Product</h3>
                                         <hr>
                                         <form:form method="POST" action="/admin/product/editProduct"
-                                            modelAttribute="editProduct">
+                                            enctype="multipart/form-data" modelAttribute="editProduct">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6" style="display: none;">
                                                     <label for="inputId">Id:</label>
@@ -87,8 +87,8 @@
                                                 </div>
                                                 <div class="mb-3 col-md-6 col-12">
                                                     <label for="imageFile" class="form-label">image</label>
-                                                    <form:input class="form-control" type="file" id="imageFile"
-                                                        accept=".png, .jpg, .jpeg" name="productFile" path="image" />
+                                                    <input class="form-control" type="file" id="imageFile"
+                                                        accept=".png, .jpg, .jpeg" name="productFile" />
                                                 </div>
 
                                                 <div class="mb-3 col-12">
