@@ -103,15 +103,15 @@ public class ProductController {
         return "redirect:/admin/product";
     }
 
-    @GetMapping("/export-products")
-    public ResponseEntity<String> exportProducts() {
-        try {
-            String filePath = "products.txt"; // hoặc đường dẫn tùy bạn
-            productService.exportToTextFile(filePath);
-            return ResponseEntity.ok("Export thành công vào file: " + filePath);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Export thất bại: " + e.getMessage());
-        }
-    }
+    // @GetMapping("/export-products")
+    // public ResponseEntity<String> exportProducts() {
+    //     try {
+    //         String filePath = "products.txt"; // hoặc đường dẫn tùy bạn
+    //         productService.exportToTextFile(filePath);
+    //         return ResponseEntity.ok("Export thành công vào file: " + filePath);
+    //     } catch (IOException e) {
+    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+    //                 .body("Export thất bại: " + e.getMessage());
+    //     }
+    // }
 }

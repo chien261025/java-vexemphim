@@ -1,113 +1,56 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
-            <!DOCTYPE html>
-            <html lang="en">
-
-            <head>
-                <meta charset="utf-8">
-                <title>Foody - Organic Food Website Template</title>
-                <meta content="width=device-width, initial-scale=1.0" name="viewport">
-                <meta content="" name="keywords">
-                <meta content="" name="description">
-
-                <!-- Favicon -->
-                <link href="img/favicon.ico" rel="icon">
-
-                <!-- Google Web Fonts -->
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap"
-                    rel="stylesheet">
-
-                <!-- Icon Font Stylesheet -->
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-                    rel="stylesheet">
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-                    rel="stylesheet">
-
-                <!-- Libraries Stylesheet -->
-                <link href="lib/animate/animate.min.css" rel="stylesheet">
-                <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-                <!-- Customized Bootstrap Stylesheet -->
-                <link href="/client/css/bootstrap.min.css" rel="stylesheet">
-
-                <!-- Template Stylesheet -->
-                <link href="/client/css/style.css" rel="stylesheet">
-            </head>
-
-            <body>
-                <!-- Bắt đầu hiệu ứng tải trang (Spinner) -->
-                <div id="spinner"
-                    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-                    <div class="spinner-border text-primary" role="status"></div>
-                </div>
-                <!-- Spinner End -->
+            <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
-                <!-- Navbar Start -->
-                <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
-                        <div class="col-lg-6 px-5 text-start">
-                            <small><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                            <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@example.com</small>
-                        </div>
-                        <div class="col-lg-6 px-5 text-end">
-                            <small>Follow us:</small>
-                            <a class="text-body ms-3" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="text-body ms-3" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="text-body ms-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a class="text-body ms-3" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="utf-8">
+                    <title>Foody - Organic Food Website Template</title>
+                    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                    <meta content="" name="keywords">
+                    <meta content="" name="description">
+
+                    <!-- Favicon -->
+                    <link href="img/favicon.ico" rel="icon">
+
+
+                    <!-- Google Web Fonts -->
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap"
+                        rel="stylesheet">
+
+                    <!-- Icon Font Stylesheet -->
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+                        rel="stylesheet">
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+                        rel="stylesheet">
+
+                    <!-- Libraries Stylesheet -->
+                    <link href="/client/lib/animate/animate.min.css" rel="stylesheet">
+                    <link href="/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+                    <!-- Customized Bootstrap Stylesheet -->
+                    <link href="/client/css/bootstrap.min.css" rel="stylesheet">
+
+                    <!-- Template Stylesheet -->
+                    <link href="/client/css/style.css" rel="stylesheet">
+                </head>
+
+                <body>
+                    <!-- Spinner Start -->
+                    <div id="spinner"
+                        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+                        <div class="spinner-border text-primary" role="status"></div>
                     </div>
+                    <!-- Spinner End -->
 
-                    <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                            <h1 class="fw-bold text-primary m-0">F<span class="text-secondary">oo</span>dy</h1>
-                        </a>
-                        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-                            data-bs-target="#navbarCollapse">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
-                            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                                <a href="index.html" class="nav-item nav-link">Home</a>
-                                <a href="product.html" class="nav-item nav-link active">Products</a>
-                            </div>
-                            <div class="d-none d-lg-flex ms-2">
-                                <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                                    <small class="fa fa-search text-body"></small>
-                                </a>
-                                <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                                    <small class="fa fa-user text-body"></small>
-                                </a>
-                                <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                                    <small class="fa fa-shopping-bag text-body"></small>
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-                <!-- Navbar End -->
-
-
-                <!-- Page Header Start -->
-                <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="container">
-                        <h1 class="display-3 mb-3 animated slideInDown">Products</h1>
-                        <nav aria-label="breadcrumb animated slideInDown">
-                            <ol class="breadcrumb mb-0">
-                                <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
-                                <li class="breadcrumb-item text-dark active" aria-current="page">Products</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-                <!-- Page Header End -->
-
+                    <c:import url="../layout/header.jsp" />
 
                 <!-- Product Start -->
                 <div class="container-xxl py-5">
@@ -143,11 +86,11 @@
                             <div id="tab-1" class="tab-pane fade show p-0 active">
                                 <div class="row g-4">
                                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                        <a href="product-detail.html?id=1"
+                                        <a href="product-detail.jsp"
                                             style="text-decoration: none; color: inherit;">
                                             <div class="product-item">
                                                 <div class="position-relative bg-light overflow-hidden">
-                                                    <img class="img-fluid w-100" src="/client/img/iphone-x.jpg" alt="">
+                                                    <img class="img-fluid w-100" src="/src/main/webapp/resources/images/product/1742975958802-iphone-x.jpg" alt="">
                                                     <div
                                                         class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
                                                         New</div>
@@ -172,9 +115,8 @@
                                             </div>
                                         </a>
                                     </div>
-
                                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                        <a href="product-detail.html?id=2"
+                                        <a href="product-detail"
                                             style="text-decoration: none; color: inherit;">
                                             <div class="product-item">
                                                 <div class="position-relative bg-light overflow-hidden">
@@ -304,7 +246,7 @@
                                                         New</div>
                                                 </div>
                                                 <div class="text-center p-4">
-                                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
+                                                    <a class="d-block h5 mb-2" href="">Iphone 15</a>
                                                     <span class="text-primary me-1">$19.00</span>
                                                     <span class="text-body text-decoration-line-through">$29.00</span>
                                                 </div>
@@ -335,7 +277,7 @@
                                                         New</div>
                                                 </div>
                                                 <div class="text-center p-4">
-                                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
+                                                    <a class="d-block h5 mb-2" href="">Iphone 15pro</a>
                                                     <span class="text-primary me-1">$19.00</span>
                                                     <span class="text-body text-decoration-line-through">$29.00</span>
                                                 </div>
@@ -359,13 +301,13 @@
                                             style="text-decoration: none; color: inherit;">
                                             <div class="product-item">
                                                 <div class="position-relative bg-light overflow-hidden">
-                                                    <img class="img-fluid w-100" src="/client/img/product-8.jpg" alt="">
+                                                    <img class="img-fluid w-100" src="/client/img/iphone-16.jpg" alt="">
                                                     <div
                                                         class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
                                                         New</div>
                                                 </div>
                                                 <div class="text-center p-4">
-                                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
+                                                    <a class="d-block h5 mb-2" href="">Iphone 16</a>
                                                     <span class="text-primary me-1">$19.00</span>
                                                     <span class="text-body text-decoration-line-through">$29.00</span>
                                                 </div>
@@ -387,6 +329,42 @@
                                     <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
                                         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More
                                             Products</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div id="tab-3" class="tab-pane fade show p-0 active">
+                                <div class="row g-4">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="20s">
+                                        <a href="product-detail.jsp"
+                                            style="text-decoration: none; color: inherit;">
+                                            <div class="product-item">
+                                                <div class="position-relative bg-light overflow-hidden">
+                                                    <img class="img-fluid w-100" src="/client/img/oppo-x8.jpg" alt="">
+                                                    <div
+                                                        class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                                        New</div>
+                                                </div>
+                                                <div class="text-center p-4">
+                                                    <h5 class="mb-2">Oppo x8</h5>
+                                                    <span class="text-primary me-1">$19.00</span>
+                                                    <span class="text-body text-decoration-line-through">$29.00</span>
+                                                </div>
+                                                <div class="d-flex border-top">
+                                                    <small class="w-50 text-center border-end py-2">
+                                                        <span class="text-body"><i
+                                                                class="fa fa-eye text-primary me-2"></i>View
+                                                            detail</span>
+                                                    </small>
+                                                    <small class="w-50 text-center py-2">
+                                                        <span class="text-body"><i
+                                                                class="fa fa-shopping-bag text-primary me-2"></i>Add to
+                                                            cart</span>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

@@ -9,5 +9,8 @@ public class ProductClientController {
     public String getProductPag() {
         return "/client/product/showProduct";
     }
-
+    @GetMapping("/showDetail")
+    public String getProductDetail() {
+        return "/client/product/showDetail";
+    }
 }

@@ -7,7 +7,7 @@
                 <div class="container py-5">
                     <div class="row g-5">
                         <div class="col-lg-3 col-md-6">
-                            <h1 class="fw-bold text-primary mb-4">F<span class="text-secondary">oo</span>dy</h1>
+                            <h1 class="fw-bold text-primary mb-4">Ph<span class="text-secondary">o</span>ne</h1>
                             <p>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et
                                 sit, sed stet lorem sit clita</p>
                             <div class="d-flex pt-2">
