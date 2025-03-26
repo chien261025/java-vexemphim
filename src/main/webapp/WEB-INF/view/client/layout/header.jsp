@@ -28,8 +28,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="product.html" class="nav-item nav-link">Products</a>
+                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/product" class="nav-item nav-link">Products</a>
                         <div class="d-none d-lg-flex ms-2">
                             <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                                 <small class="fa fa-search text-body"></small>
