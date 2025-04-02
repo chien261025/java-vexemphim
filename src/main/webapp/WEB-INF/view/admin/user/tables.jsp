@@ -56,7 +56,7 @@
                                                         <td>${users.name}</td>
                                                         <td>${users.email}</td>
                                                         <td>${users.phone}</td>
-                                                        <td>${users.role}</td>
+                                                        <td>${users.role.name}</td>
                                                         <td>
                                                             <a href="/admin/user/editUser/${users.id}"
                                                                 class="btn btn-warning btn-sm">Edit</a>

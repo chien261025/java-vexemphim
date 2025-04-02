@@ -38,23 +38,4 @@ public class ProductService {
     }
 
     //
-    public void exportToTextFile(String filePath) throws IOException {
-        List<Product> products = productRepository.findAll();
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            for (Product product : products) {
-                String line = String.format(
-                        "Name: %s | Price: %s | Quantity: %s | Factory: %s | Image: %s | Short Desc: %s | Detail Desc: %s",
-                        product.getName(),
-                        product.getPrice(),
-                        product.getQuantity(),
-                        product.getFactory(),
-                        product.getImage(),
-                        product.getShortDescription(),
-                        product.getDetailedDescription());
-                writer.write(line);
-                writer.newLine();
-            }
-        }
-    }
 }

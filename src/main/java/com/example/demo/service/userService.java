@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.userRepository;
 
 @Service
 public class userService {
     private final userRepository userRepository;
+    private final RoleRepository roleRepository;
 
-    public userService(userRepository userRepository) {
+    public userService(userRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     public void getSaveUser(User user) {
@@ -29,5 +33,13 @@ public class userService {
 
     public void handleDeleteUser(long id) {
         this.userRepository.deleteById(id);
+    }
+
+    public Role getFindName(String name) {
+        return this.roleRepository.findByName(name);
+    }
+
+    public User getFindEmail(String email) {
+        return this.userRepository.findByEmail(email);
     }
 }

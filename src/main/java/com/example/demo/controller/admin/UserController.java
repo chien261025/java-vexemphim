@@ -2,6 +2,7 @@ package com.example.demo.controller.admin;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,28 +19,31 @@ import com.example.demo.service.userService;
 public class UserController {
 
         private final userService userService;
+        private final PasswordEncoder passwordEncoder;
 
-        public UserController(userService userService) {
+        public UserController(userService userService, PasswordEncoder passwordEncoder) {
                 this.userService = userService;
+                this.passwordEncoder = passwordEncoder;
         }
 
         @RequestMapping("/admin/user")
         public String getMethodName(Model model) {
                 List<User> users = this.userService.getUserFindAll();
                 model.addAttribute("users", users);
-                return "/admin/user/tables";
+                return "admin/user/tables";
         }
 
         @GetMapping("/admin/user/create")
         public String getCreate(Model model, User newUser) {
                 model.addAttribute("newUser", newUser);
-                return "/admin/user/createUser";
+                return "admin/user/createUser";
         }
 
-        // chức năm tạo mới người dùng
-
+        // chức namg tạo mới người dùng
         @PostMapping("/admin/user/createUser")
-        public String postCreateUser(@ModelAttribute("newUser") User newUser) {
+        public String postCreateUser(Model model, @ModelAttribute("newUser") User newUser) {
+                newUser.setRole(this.userService.getFindName(newUser.getRole().getName()));
+                newUser.setPassword(this.passwordEncoder.encode(newUser.getPassword()));
                 this.userService.getSaveUser(newUser);
                 return "redirect:/admin/user ";
         }
@@ -49,7 +53,7 @@ public class UserController {
         public String getEditUserPage(Model model, @PathVariable long id) {
                 User user = this.userService.getFindById(id);
                 model.addAttribute("editUser", user);
-                return "/admin/user/editUser";
+                return "admin/user/editUser";
         }
 
         @PostMapping("/admin/user/editUser")
@@ -61,8 +65,7 @@ public class UserController {
                         updateUser.setPassword(editUser.getPassword());
                         updateUser.setEmail(editUser.getEmail());
                         updateUser.setPhone(editUser.getPhone());
-                        updateUser.setRole(editUser.getRole());
-
+                        updateUser.setRole(this.userService.getFindName(editUser.getRole().getName()));
                         this.userService.getSaveUser(updateUser);
                 }
                 return "redirect:/admin/user";
@@ -75,7 +78,7 @@ public class UserController {
                 User user = new User();
                 user.setId(id);
                 model.addAttribute("deleteUser", user);
-                return "/admin/user/deleteUser";
+                return "admin/user/deleteUser";
         }
 
         @PostMapping("/admin/user/deleteUser")

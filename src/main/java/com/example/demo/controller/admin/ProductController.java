@@ -38,13 +38,13 @@ public class ProductController {
     public String getShowProduct(Model model) {
         List<Product> products = this.productService.getFindAllProduct();
         model.addAttribute("products", products);
-        return "/admin/product/showProduct";
+        return "admin/product/showProduct";
     }
 
     @GetMapping("/admin/product/createProduct")
     public String getCreate(Model model, Product newProduct) {
         model.addAttribute("newProduct", newProduct);
-        return "/admin/product/createProduct";
+        return "admin/product/createProduct";
     }
 
     // thêm sản phẩm
@@ -66,7 +66,7 @@ public class ProductController {
         Product product = new Product();
         product.setId(id);
         model.addAttribute("newProduct", product);
-        return "/admin/product/deleteProduct";
+        return "admin/product/deleteProduct";
     }
 
     @PostMapping("/admin/product/deleteProduct")
@@ -80,7 +80,7 @@ public class ProductController {
     public String getEditProductPage(Model model, @PathVariable long id) {
         Product product = this.productService.getFindId(id);
         model.addAttribute("editProduct", product);
-        return "/admin/product/editProduct";
+        return "admin/product/editProduct";
     }
 
     @PostMapping("/admin/product/editProduct")
@@ -102,16 +102,4 @@ public class ProductController {
 
         return "redirect:/admin/product";
     }
-
-    // @GetMapping("/export-products")
-    // public ResponseEntity<String> exportProducts() {
-    //     try {
-    //         String filePath = "products.txt"; // hoặc đường dẫn tùy bạn
-    //         productService.exportToTextFile(filePath);
-    //         return ResponseEntity.ok("Export thành công vào file: " + filePath);
-    //     } catch (IOException e) {
-    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-    //                 .body("Export thất bại: " + e.getMessage());
-    //     }
-    // }
 }

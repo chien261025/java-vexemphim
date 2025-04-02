@@ -13,7 +13,7 @@
                 <meta name="author" content="" />
                 <title>Create User - SB Admin</title>
                 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-                <link href="/css/styles.css" rel="stylesheet" />
+                <link href="/admin/css/styles.css" rel="stylesheet" />
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -53,7 +53,8 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="inputRole">Role</label>
-                                                    <form:select path="role" cssClass="form-control" id="inputRole">
+                                                    <form:select path="role.name" cssClass="form-control"
+                                                        id="inputRole">
                                                         <form:option value="ADMIN">Admin</form:option>
                                                         <form:option value="USER">User</form:option>
                                                     </form:select>

@@ -58,34 +58,11 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img class="w-100" src="/client/img/iphone_16_pro.webp" alt="Image">
-                                    <div class="carousel-caption">
-                                        <div class="container">
-                                            <div class="row justify-content-start">
-                                                <div class="col-lg-7">
-                                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Sản
-                                                        phẩm</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="carousel-item">
                                     <img class="w-100" src="/client/img/samsung_S25_ultra.jpg" alt="Image">
-                                    <div class="carousel-caption">
-                                        <div class="container">
-                                            <div class="row justify-content-start">
-                                                <div class="col-lg-7">
-                                                    <h2 class="display-2 mb-5 animated slideInDown">Galaxy S25 Ultra
-                                                    </h2>
-                                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Sản
-                                                        phẩm</a>
-                                                    <a href=""
-                                                        class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Dịch
-                                                        Vụ</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
