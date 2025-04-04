@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -12,37 +11,36 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.example.demo.service.CustomUserDetailsService;
 import com.example.demo.service.userService;
-
 import jakarta.servlet.DispatcherType;
 
 @Configuration
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
-    @Autowired
-    private userService userService;
+    private final CustomUserDetailsService customUserDetailsService; // Inject userService as a dependency
 
-    public SecurityConfig(userService userService) {
-        this.userService = userService;
+    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
+        this.customUserDetailsService = customUserDetailsService; // Initialize the userService
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    public AuthenticationSuccessHandler customSuccessHandler() {
-        return new CustomSuccessHandler();
+        return new BCryptPasswordEncoder(); // BCrypt password encoder for security
     }
 
     @Bean
-    public DaoAuthenticationProvider authProvider(
-            PasswordEncoder passwordEncoder,
+    public UserDetailsService userDetailsService() {
+        return customUserDetailsService; // Return the custom user details service
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authProvider(PasswordEncoder passwordEncoder,
             UserDetailsService userDetailsService) {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder);
-        authProvider.setHideUserNotFoundExceptions(false);
+        authProvider.setUserDetailsService(userDetailsService); // userService implements UserDetailsService
+        authProvider.setPasswordEncoder(passwordEncoder); // Set the password encoder
+        authProvider.setHideUserNotFoundExceptions(false); // Show detailed error when user is not found
         return authProvider;
     }
 
@@ -52,35 +50,34 @@ public class SecurityConfig {
             boolean isAdmin = authentication.getAuthorities().stream()
                     .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
             if (isAdmin) {
-                response.sendRedirect("/admin");
+                response.sendRedirect("/admin"); // Redirect to admin page
             } else {
-                response.sendRedirect("/");
+                response.sendRedirect("/"); // Redirect to home page
             }
         };
     }
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .dispatcherTypeMatchers(DispatcherType.FORWARD,
-                                DispatcherType.INCLUDE)
+                        .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE)
                         .permitAll()
-                        .requestMatchers("/", "/login", "/product/**",
-                                "/client/**", "/css/**", "/js/**",
-                                "/images/**",
+                        .requestMatchers("/", "/login", "/product/**", "/client/**", "/css/**", "/js/**", "/images/**",
                                 "/register")
                         .permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
-                        .anyRequest().authenticated())
-                .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
+                        .requestMatchers("/admin").hasRole("ADMIN") // Only allow access to admin page if the user has
+                                                                    // ADMIN role
+                        .anyRequest().authenticated()) // All other requests require authentication
+                .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true)) // Logout
+                                                                                                  // configuration
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/login")
-                        .failureUrl("/login?error")
-                        .successHandler(successHandler())
-                        .permitAll())
-                .exceptionHandling(ex -> ex.accessDeniedPage("/error"));
+                        .loginPage("/login") // Custom login page
+                        .failureUrl("/login?error") // Failure URL
+                        .successHandler(successHandler()) // Custom success handler
+                        .permitAll()) // Allow all users to access the login page
+                .exceptionHandling(ex -> ex.accessDeniedPage("/error")); // Custom access denied page
 
-        return http.build();
+        return http.build(); // Return the configured SecurityFilterChain
     }
 }
