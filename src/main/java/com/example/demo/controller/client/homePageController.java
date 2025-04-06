@@ -15,8 +15,6 @@ import com.example.demo.domain.User;
 import com.example.demo.service.ProductService;
 import com.example.demo.service.userService;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
 @Controller
 public class homePageController {
 
@@ -70,8 +68,6 @@ public class homePageController {
         return "client/homepage/login"; // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
     }
 
-    @GetMapping("/error")
-    public String getErrorPage() {
-        return "client/homepage/error"; // Trả về trang lỗi
-    }
+    
+  
 }

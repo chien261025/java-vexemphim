@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.example.demo.service.CustomUserDetailsService;
-import com.example.demo.service.userService;
+
 import jakarta.servlet.DispatcherType;
 
 @Configuration

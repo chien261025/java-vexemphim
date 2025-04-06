@@ -14,4 +14,8 @@ public class DashboardComtroller {
     public String getDashboardPage() {
         return "admin/dashboard/index";
     }
+    @GetMapping("/admin/error")
+    public String getErrorPage() {
+        return "client/homepage/error"; // Trả về trang lỗi
+    }
 }

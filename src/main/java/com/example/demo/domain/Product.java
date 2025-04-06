@@ -20,9 +20,6 @@ public class Product {
     private String factory;
     private String image;
 
-    // product -> many to one -> order_detail
-    // @OneToMany
-    // private List<OrderDetail> orderDetails;
 
     public String getImage() {
         return image;
