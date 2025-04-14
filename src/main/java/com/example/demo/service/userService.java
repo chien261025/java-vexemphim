@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
 import com.example.demo.repository.RoleRepository;
-import com.example.demo.repository.userRepository;
+import com.example.demo.repository.UserRepository;
 
 @Service
-public class userService {
-    private final userRepository userRepository;
+public class UserService {
+    private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public userService(userRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
@@ -41,5 +41,13 @@ public class userService {
 
     public User getFindEmail(String email) {
         return this.userRepository.findByEmail(email);
+    }
+
+    public long getUserIdByUsername(String username) {
+        User user = this.userRepository.findByEmail(username);
+        if (user != null) {
+            return user.getId();
+        }
+        return -1;
     }
 }

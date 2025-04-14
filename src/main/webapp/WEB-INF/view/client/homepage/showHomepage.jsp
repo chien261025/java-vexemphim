@@ -132,12 +132,19 @@
                                                                     class="fa fa-eye text-primary me-2"></i>View
                                                                 detail</a>
                                                         </small>
-                                                        <small class="w-50 text-center py-2">
-                                                            <a class="text-body" href=""><i
+                                                        <form action="/add-product-to-cart/${products.id}"
+                                                            method="post">
+                                                            <div>
+                                                                <input type="hidden" name="${_csrf.parameterName}"
+                                                                    value="${_csrf.token}" />
+
+                                                            </div>
+
+                                                            <button class="text-body"><i
                                                                     class="fa fa-shopping-bag text-primary me-2"></i>Add
                                                                 to
-                                                                cart</a>
-                                                        </small>
+                                                                cart</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

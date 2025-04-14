@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpSession;
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
     @Autowired
-    private com.example.demo.service.userService userService;
+    private com.example.demo.service.UserService userService;
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 

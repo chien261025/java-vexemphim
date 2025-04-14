@@ -2,14 +2,7 @@ package com.example.demo.domain;
 
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -30,6 +23,9 @@ public class User {
     // User -> One To Many -> order
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
+
+    @OneToOne(mappedBy = "user")
+    private Cart cart;
 
     public Role getRole() {
         return role;
@@ -85,6 +81,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
 }

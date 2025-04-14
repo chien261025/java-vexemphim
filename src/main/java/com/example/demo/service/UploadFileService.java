@@ -28,13 +28,8 @@ public class UploadFileService {
         String finalName = "";
         try {
             byte[] bytes = file.getBytes();
-
             File dir = new File(rootPath + File.separator + targetFolder);
-
             dir.mkdirs();
-            // Create the file on server
-
-            // địa chỉ lưu file
             finalName = +System.currentTimeMillis() + "-" + file.getOriginalFilename();
             File serverFile = new File(dir.getAbsolutePath() + File.separator + finalName);
 

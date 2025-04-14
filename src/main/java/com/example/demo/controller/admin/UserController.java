@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.domain.Product;
 import com.example.demo.domain.User;
-import com.example.demo.service.userService;
+import com.example.demo.service.UserService;
 
 @Controller
 public class UserController {
 
-        private final userService userService;
+        private final UserService userService;
         private final PasswordEncoder passwordEncoder;
 
-        public UserController(userService userService, PasswordEncoder passwordEncoder) {
+        public UserController(UserService userService, PasswordEncoder passwordEncoder) {
                 this.userService = userService;
                 this.passwordEncoder = passwordEncoder;
         }

@@ -1,10 +1,8 @@
 package com.example.demo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -13,13 +11,15 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String price;
+    private double price;
     private String detailedDescription;
     private String shortDescription;
-    private String quantity;
+    private long quantity;
     private String factory;
     private String image;
 
+    @OneToMany(mappedBy = "product")
+    private List<CartDetail> cartDetails;
 
     public String getImage() {
         return image;
@@ -45,11 +45,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -69,11 +69,11 @@ public class Product {
         this.shortDescription = shortDescription;
     }
 
-    public String getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 

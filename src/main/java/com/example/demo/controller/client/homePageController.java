@@ -2,6 +2,7 @@ package com.example.demo.controller.client;
 
 import java.util.List;
 
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +14,16 @@ import com.example.demo.domain.Product;
 import com.example.demo.domain.Register;
 import com.example.demo.domain.User;
 import com.example.demo.service.ProductService;
-import com.example.demo.service.userService;
+import com.example.demo.service.UserService;
 
 @Controller
-public class homePageController {
+public class homePageController implements ErrorController {
 
     private final ProductService productService;
-    private final userService userService;
+    private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-    public homePageController(ProductService productService, userService userService,
+    public homePageController(ProductService productService, UserService userService,
             PasswordEncoder passwordEncoder) {
         this.productService = productService;
         this.userService = userService;
@@ -31,6 +32,13 @@ public class homePageController {
 
     @GetMapping("/")
     public String getHomePage(Model model) {
+        List<Product> products = this.productService.getFindAllProduct();
+        model.addAttribute("products", products);
+        return "client/homepage/showHomepage";
+    }
+
+    @GetMapping("/homepage")
+    public String getHomePage1(Model model) {
         List<Product> products = this.productService.getFindAllProduct();
         model.addAttribute("products", products);
         return "client/homepage/showHomepage";
@@ -68,6 +76,8 @@ public class homePageController {
         return "client/homepage/login"; // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
     }
 
-    
-  
+    @GetMapping("/error")
+    public String getErrorPage() {
+        return "client/homepage/error"; // Chuyển hướng đến trang lỗi
+    }
 }

@@ -66,8 +66,9 @@ public class SecurityConfig {
                         .requestMatchers("/", "/login", "/product/**", "/client/**", "/css/**", "/js/**", "/images/**",
                                 "/register")
                         .permitAll()
+
                         .requestMatchers("/admin").hasRole("ADMIN") // Only allow access to admin page if the user has
-                                                                    // ADMIN role
+
                         .anyRequest().authenticated()) // All other requests require authentication
                 .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true)) // Logout
                                                                                                   // configuration

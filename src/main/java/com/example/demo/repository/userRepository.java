@@ -7,7 +7,7 @@ import com.example.demo.domain.User;
 import java.util.List;
 
 @Repository
-public interface userRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     User save(User newUser);
 
     User findById(long id);

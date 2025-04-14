@@ -18,7 +18,7 @@
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <c:if test="${not empty pageContext.request.userPrincipal}">
                             <div class="d-flex ms-3">
-                                <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+                                <a class="btn-sm-square bg-white rounded-circle ms-3" href="/cart">
                                     <small class="fa fa-shopping-bag text-body fa-2x"></small>
                                 </a>
                                 <a class="btn-sm-square bg-white rounded-circle ms-3" id="navbarDropdown" href=""

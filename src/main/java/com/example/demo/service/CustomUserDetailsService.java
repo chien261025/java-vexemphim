@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.User;
-import com.example.demo.repository.userRepository;
+import com.example.demo.repository.UserRepository;
 
 import java.util.Collections;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private userRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
