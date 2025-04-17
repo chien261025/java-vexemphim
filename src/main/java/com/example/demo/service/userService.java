@@ -4,8 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.Order;
+import com.example.demo.domain.OrderDetail;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
+import com.example.demo.repository.OrderDetailRepository;
+import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 
@@ -13,8 +17,13 @@ import com.example.demo.repository.UserRepository;
 public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final OrderRepository orderRepository;
+    private final OrderDetailRepository orderDetailRepository;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository,
+            OrderRepository orderRepository, OrderDetailRepository orderDetailRepository) {
+        this.orderDetailRepository = orderDetailRepository;
+        this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
@@ -32,6 +41,19 @@ public class UserService {
     }
 
     public void handleDeleteUser(long id) {
+        User user = this.userRepository.findById(id);
+        List<Order> orders = user.getOrders();
+        if (orders != null) {
+            for (Order order : orders) {
+                List<OrderDetail> orderDetails = order.getOrderDetails();
+                if (orderDetails != null) {
+                    for (OrderDetail detail : orderDetails) {
+                        this.orderDetailRepository.deleteById(detail.getId());
+                    }
+                }
+                this.orderRepository.deleteById(order.getId());
+            }
+        }
         this.userRepository.deleteById(id);
     }
 

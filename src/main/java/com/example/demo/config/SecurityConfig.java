@@ -44,17 +44,23 @@ public class SecurityConfig {
         return authProvider;
     }
 
+    // @Bean
+    // public AuthenticationSuccessHandler successHandler() {
+    // return (request, response, authentication) -> {
+    // boolean isAdmin = authentication.getAuthorities().stream()
+    // .anyMatch(grantedAuthority ->
+    // grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
+    // if (isAdmin) {
+    // response.sendRedirect("/admin"); // Redirect to admin page
+    // } else {
+    // response.sendRedirect("/"); // Redirect to home page
+    // }
+    // };
+    // }
+
     @Bean
     public AuthenticationSuccessHandler successHandler() {
-        return (request, response, authentication) -> {
-            boolean isAdmin = authentication.getAuthorities().stream()
-                    .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
-            if (isAdmin) {
-                response.sendRedirect("/admin"); // Redirect to admin page
-            } else {
-                response.sendRedirect("/"); // Redirect to home page
-            }
-        };
+        return new CustomSuccessHandler(); // cái bạn đã viết với session.setAttribute(...)
     }
 
     @Bean
@@ -63,7 +69,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE)
                         .permitAll()
-                        .requestMatchers("/", "/login", "/product/**", "/client/**", "/css/**", "/js/**", "/images/**",
+                        .requestMatchers("/", "/login", "/client/**", "/css/**", "/js/**", "/images/**",
                                 "/register")
                         .permitAll()
 

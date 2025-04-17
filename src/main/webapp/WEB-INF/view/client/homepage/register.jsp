@@ -28,6 +28,7 @@
                                             <div class="card-header">
                                                 <h3 class="text-center font-weight-light my-4">Create Account</h3>
                                             </div>
+                                            <!-- Hiển thị lỗi nếu có -->
                                             <div class="card-body">
                                                 <!-- Hiển thị lỗi nếu mật khẩu và xác nhận mật khẩu không khớp -->
                                                 <c:if test="${not empty passwordMismatchError}">

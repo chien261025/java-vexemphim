@@ -128,23 +128,27 @@
                                                     </div>
                                                     <div class="d-flex border-top">
                                                         <small class="w-50 text-center border-end py-2">
-                                                            <a class="text-body" href=""><i
+                                                            <a class="text-body"
+                                                                href="/client/product/showDetail/${products.id}"><i
                                                                     class="fa fa-eye text-primary me-2"></i>View
                                                                 detail</a>
                                                         </small>
-                                                        <form action="/add-product-to-cart/${products.id}"
-                                                            method="post">
-                                                            <div>
-                                                                <input type="hidden" name="${_csrf.parameterName}"
-                                                                    value="${_csrf.token}" />
+                                                        <small class="w-50 text-center border-end py-2">
+                                                            <form action="/add-product-to-cart/${products.id}"
+                                                                method="post">
+                                                                <div>
+                                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                                        value="${_csrf.token}" />
 
-                                                            </div>
+                                                                </div>
 
-                                                            <button class="text-body"><i
-                                                                    class="fa fa-shopping-bag text-primary me-2"></i>Add
-                                                                to
-                                                                cart</button>
-                                                        </form>
+                                                                <button class="btn btn-light "><i
+                                                                        class="fa fa-shopping-bag text-primary me-2"></i>Add
+                                                                    to
+                                                                    cart</button>
+                                                            </form>
+                                                        </small>
+
                                                     </div>
                                                 </div>
                                             </div>

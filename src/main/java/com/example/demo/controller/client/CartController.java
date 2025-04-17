@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.Cart;
 import com.example.demo.domain.CartDetail;
+import com.example.demo.domain.Order;
+import com.example.demo.domain.OrderDetail;
 import com.example.demo.domain.User;
 import com.example.demo.service.CartService;
 import com.example.demo.service.OrderService;
@@ -159,4 +161,15 @@ public class CartController {
     public String getThankYouPage(Model model) {
         return "client/cart/thankyou";
     }
+
+    @GetMapping("/history")
+    public String getHistoryPage(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.getFindEmail(email);
+        List<Order> orders = this.orderService.getOrderByUser(user);
+        model.addAttribute("orders", orders);
+        return "client/cart/history";
+    }
+
 }

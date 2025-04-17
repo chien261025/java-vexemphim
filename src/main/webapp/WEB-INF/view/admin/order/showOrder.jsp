@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
             <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
@@ -65,25 +65,14 @@
                                                                     type="number" groupingUsed="true" /> VND
                                                             </td>
                                                             <td>
-                                                                <form action="/formStatus/${order.id}" method="POST"
-                                                                    id="statusForm">
-                                                                    <input type="hidden" name="${_csrf.parameterName}"
-                                                                        value="${_csrf.token}" />
-                                                                    <div class="form-group col-md-6">
-                                                                        <select name="status" class="form-control"
-                                                                            id="inputStatus" onchange="submitForm()">
-                                                                            <option value="PENDING">PENDING</option>
-                                                                            <option value="SHIPPING">SHIPPING</option>
-                                                                            <option value="COMPLETE">COMPLETE</option>
-                                                                            <option value="CANCEL">CANCEL</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </form>
+                                                                ${order.status}
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/user/editUser/${users.id}"
+                                                                <a href="/admin/order/viewOrder/${order.id}"
+                                                                    class="btn btn-primary btn-sm">View</a>
+                                                                <a href="/admin/order/editOrder/${order.id}"
                                                                     class="btn btn-warning btn-sm">Edit</a>
-                                                                <a href="/admin/user/deleteUser/${users.id}"
+                                                                <a href="/admin/order/deleteOrder/${order.id}"
                                                                     class="btn btn-danger btn-sm">Delete</a>
                                                             </td>
                                                         </tr>
@@ -98,27 +87,6 @@
 
                         </div>
                     </div>
-
-                    <script>
-                        function submitForm() {
-                            var form = document.getElementById("statusForm");
-                            var status = document.getElementById("inputStatus").value;
-
-                            // Create a new FormData object to send the form data
-                            var formData = new FormData(form);
-
-                            // Send AJAX request
-                            var xhr = new XMLHttpRequest();
-                            xhr.open("POST", form.action, true);
-                            xhr.onreadystatechange = function () {
-                                if (xhr.readyState == 4 && xhr.status == 200) {
-                                    // If successful, update the status display
-                                    document.getElementById("statusDisplay").innerHTML = "Updated Status: " + status;
-                                }
-                            };
-                            xhr.send(formData);
-                        }
-                    </script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                         crossorigin="anonymous"></script>
                     <script src="js/scripts.js"></script>

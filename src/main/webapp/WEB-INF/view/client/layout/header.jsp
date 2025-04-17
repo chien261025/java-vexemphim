@@ -25,14 +25,17 @@
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <small class="fa fa-user text-body fa-2x"></small>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li>
+                                <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
+                                    <div class="text-center my-3">
+                                        hi:
                                         <c:out value="${sessionScope.fullName}" />
+                                    </div>
                                     </li>
+                                    <li><a class="dropdown-item" href="/history">purchase history</a></li>
                                     <li>
-                                        <hr class="dropdown-divider" />
+                                        <hr class="dropdown-divider">
                                     </li>
-                                    <li>
+                                    <li class="nav-item">
                                         <form action="/logout" method="post">
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                             <button class="dropdown-item">Logout</button>

@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.Cart;
@@ -19,17 +19,21 @@ import jakarta.servlet.http.HttpSession;
 @Service
 public class OrderService {
 
+    private final DaoAuthenticationProvider authProvider;
+
     private final CartDetailRepository cartDetailRepository;
     private final OrderDetailRepository orderDetailRepository;
     private final OrderRepository orderRepository;
     private final CartRepository cartRepository;
 
     public OrderService(CartRepository cartRepository, OrderRepository orderRepository,
-            OrderDetailRepository orderDetailRepository, CartDetailRepository cartDetailRepository) {
+            OrderDetailRepository orderDetailRepository, CartDetailRepository cartDetailRepository,
+            DaoAuthenticationProvider authProvider) {
         this.cartRepository = cartRepository;
         this.orderRepository = orderRepository;
         this.orderDetailRepository = orderDetailRepository;
         this.cartDetailRepository = cartDetailRepository;
+        this.authProvider = authProvider;
     }
 
     public void handlePlaceOrder(User user, String receiverName, String receiverPhone, String receiverAddress,
@@ -80,5 +84,20 @@ public class OrderService {
 
     public void handleSaveOrder(Order order) {
         this.orderRepository.save(order);
+    }
+
+    public void handleDeleteOrder(long id) {
+        Order order = this.orderRepository.findById(id);
+        List<OrderDetail> orderDetails = order.getOrderDetails();
+        if (orderDetails != null) {
+            for (OrderDetail detail : orderDetails) {
+                this.orderDetailRepository.delete(detail);
+            }
+        }
+        this.orderRepository.deleteById(id);
+    }
+
+    public List<Order> getOrderByUser(User user) {
+        return this.orderRepository.findByUser(user);
     }
 }

@@ -69,8 +69,19 @@
                                 <!-- Nút thêm vào giỏ hàng -->
                                 <div class="d-flex align-items-center mb-3">
                                     <input type="number" class="form-control w-25 mr-2" value="1" min="1">
-                                    <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to
-                                        Cart</button>
+                                    <small class="w-50 text-center border-end py-2">
+                                        <form action="/add-product-to-cart/${product.id}" method="post">
+                                            <div>
+                                                <input type="hidden" name="${_csrf.parameterName}"
+                                                    value="${_csrf.token}" />
+
+                                            </div>
+                                            <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to
+                                                Cart</button>
+                                        </form>
+                                    </small>
+
+
                                 </div>
 
 
