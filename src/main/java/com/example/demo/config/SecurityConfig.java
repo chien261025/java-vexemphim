@@ -44,23 +44,9 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    // @Bean
-    // public AuthenticationSuccessHandler successHandler() {
-    // return (request, response, authentication) -> {
-    // boolean isAdmin = authentication.getAuthorities().stream()
-    // .anyMatch(grantedAuthority ->
-    // grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
-    // if (isAdmin) {
-    // response.sendRedirect("/admin"); // Redirect to admin page
-    // } else {
-    // response.sendRedirect("/"); // Redirect to home page
-    // }
-    // };
-    // }
-
     @Bean
     public AuthenticationSuccessHandler successHandler() {
-        return new CustomSuccessHandler(); // cái bạn đã viết với session.setAttribute(...)
+        return new CustomSuccessHandler();
     }
 
     @Bean
@@ -69,12 +55,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE)
                         .permitAll()
-                        .requestMatchers("/", "/login", "/client/**", "/css/**", "/js/**", "/images/**",
+                        .requestMatchers("/", "/login", "/client/**", "/css/**", "/js/**", "/images/**", "/product/**",
                                 "/register")
                         .permitAll()
-
-                        .requestMatchers("/admin").hasRole("ADMIN") // Only allow access to admin page if the user has
-
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()) // All other requests require authentication
                 .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true)) // Logout
                                                                                                   // configuration

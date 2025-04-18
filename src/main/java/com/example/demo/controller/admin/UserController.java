@@ -59,10 +59,13 @@ public class UserController {
         public String postEditUser(Model model, @ModelAttribute("editUser") User editUser) {
 
                 User updateUser = this.userService.getFindById(editUser.getId());
+                String password = this.passwordEncoder.encode(editUser.getPassword());
                 if (updateUser != null) {
                         updateUser.setName(editUser.getName());
-                        updateUser.setPassword(editUser.getPassword());
                         updateUser.setEmail(editUser.getEmail());
+                        if (editUser.getPassword() != null && !editUser.getPassword().isEmpty()) {
+                                updateUser.setPassword(password);
+                        }
                         updateUser.setPhone(editUser.getPhone());
                         updateUser.setRole(this.userService.getFindName(editUser.getRole().getName()));
                         this.userService.getSaveUser(updateUser);

@@ -8,7 +8,7 @@
 
                 <head>
                     <meta charset="utf-8">
-                    <title>Foody - Organic Food Website Template</title>
+                    <title>Cart: Phone</title>
                     <meta content="width=device-width, initial-scale=1.0" name="viewport">
                     <link href="img/favicon.ico" rel="icon">
                     <link
